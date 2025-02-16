@@ -1,0 +1,56 @@
+<template>
+    <swiper
+        :spaceBetween="30"
+        :pagination="{ clickable: true }"
+        :loop="true"
+        :autoplay="{ delay: 3000, disableOnInteraction: false }"
+        :modules="modules"
+        class="mySwiper"
+    >
+        <swiper-slide>
+            <img class="w-full" src="https://fakeimg.pl/1200x400/" alt="Slide 1">
+        </swiper-slide>
+        <swiper-slide>
+            <img class="w-full" src="https://fakeimg.pl/1200x400/" alt="Slide 2">
+        </swiper-slide>
+        <swiper-slide>
+            <img class="w-full" src="https://fakeimg.pl/1200x400/" alt="Slide 3">
+        </swiper-slide>
+        <swiper-slide>
+            <img class="w-full" src="https://fakeimg.pl/1200x400/" alt="Slide 4">
+        </swiper-slide>
+    </swiper>
+</template>
+
+<script>
+import { Swiper, SwiperSlide } from 'swiper/vue';
+import 'swiper/css';
+import 'swiper/css/pagination';
+import 'swiper/css/autoplay';
+
+import { Pagination, Autoplay } from 'swiper/modules';
+
+export default {
+    components: {
+        Swiper,
+        SwiperSlide,
+    },
+    setup() {
+        return {
+            modules: [Pagination, Autoplay],
+        };
+    },
+};
+</script>
+
+<style>
+.swiper-pagination-bullet {
+    background-color: #9b9999 !important; /* Change to your preferred color */
+    opacity: 1; /* Make dots fully visible */
+}
+
+.swiper-pagination-bullet-active {
+    background-color: #0c00e9 !important; /* Active dot color */
+}
+
+</style>
