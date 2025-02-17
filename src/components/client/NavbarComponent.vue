@@ -2,21 +2,31 @@
 <template>
 
     <div class="bg-blue-500">
-        <nav class="relative px-4 py-4 flex justify-between items-center bg-white border">
+        <nav class="relative flex items-center justify-between px-4 py-4 bg-white border">
             <a class="text-3xl font-bold leading-none" href="#">
-                <img class="w-20 border" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRGh5WFH8TOIfRKxUrIgJZoDCs1yvQ4hIcppw&s" alt="">
+                <img class="w-20 border"
+                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRGh5WFH8TOIfRKxUrIgJZoDCs1yvQ4hIcppw&s"
+                    alt="">
             </a>
             <div class="lg:hidden">
-                <button class="navbar-burger flex items-center text-blue-600 p-3">
-                    <svg class="block h-4 w-4 fill-current" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                <button class="flex items-center p-3 text-blue-600 navbar-burger">
+                    <svg class="block w-4 h-4 fill-current" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
                         <title>Mobile menu</title>
                         <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z"></path>
                     </svg>
                 </button>
             </div>
             <ul
-                class="hidden absolute top-1/2 left-1/2 transform -translate-y-1/2 -translate-x-1/2 lg:flex lg:mx-auto  lg:items-center lg:w-auto lg:space-x-6">
-                <li><a class="text-sm text-gray-400 hover:text-gray-500 font-bayon" href="#">ទំព័រដើម</a></li>
+                class="absolute hidden transform -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2 lg:flex lg:mx-auto lg:items-center lg:w-auto lg:space-x-6">
+                <li><a class="flex items-center gap-1 font-mono text-gray-400 uppercase text-md hover:text-gray-500"
+                        href="#">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                            stroke="currentColor" class="size-6">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="m2.25 12 8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25" />
+                        </svg>
+
+                        <span>Home</span></a></li>
                 <li class="text-gray-300">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor"
                         class="w-4 h-4 current-fill" viewBox="0 0 24 24">
@@ -24,7 +34,17 @@
                             d="M12 5v0m0 7v0m0 7v0m0-13a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2z" />
                     </svg>
                 </li>
-                <li><a class="text-sm text-blue-600 font-bold font-bayon" href="#">សេវាបុគ្គល</a></li>
+                <li><a class="flex items-center gap-1 font-mono text-gray-400 uppercase text-md hover:text-gray-500"
+                        href="#">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                            class="lucide lucide-wallet size-6">
+                            <path
+                                d="M19 7V4a1 1 0 0 0-1-1H5a2 2 0 0 0 0 4h15a1 1 0 0 1 1 1v4h-3a2 2 0 0 0 0 4h3a1 1 0 0 0 1-1v-2a1 1 0 0 0-1-1" />
+                            <path d="M3 5v14a2 2 0 0 0 2 2h15a1 1 0 0 0 1-1v-4" />
+                        </svg>
+
+                        <span>Wallet</span></a></li>
                 <li class="text-gray-300">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor"
                         class="w-4 h-4 current-fill" viewBox="0 0 24 24">
@@ -32,7 +52,16 @@
                             d="M12 5v0m0 7v0m0 7v0m0-13a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2z" />
                     </svg>
                 </li>
-                <li><a class="text-sm text-gray-400 hover:text-gray-500 font-bayon" href="#">កម្ចីប្រាក់</a></li>
+                <li><a class="flex items-center gap-1 font-mono text-gray-400 uppercase text-md hover:text-gray-500"
+                        href="#">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                            class="lucide lucide-user size-6">
+                            <path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2" />
+                            <circle cx="12" cy="7" r="4" />
+                        </svg>
+
+                        <span>Profile</span></a></li>
                 <li class="text-gray-300">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor"
                         class="w-4 h-4 current-fill" viewBox="0 0 24 24">
@@ -40,36 +69,21 @@
                             d="M12 5v0m0 7v0m0 7v0m0-13a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2z" />
                     </svg>
                 </li>
-                <li><a class="text-sm text-gray-400 hover:text-gray-500 font-bayon" href="#">សេវាអាជីវកម្ម</a></li>
-                <li class="text-gray-300">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor"
-                        class="w-4 h-4 current-fill" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            d="M12 5v0m0 7v0m0 7v0m0-13a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2z" />
-                    </svg>
-                </li>
-                <li><a class="text-sm text-gray-400 hover:text-gray-500 font-bayon" href="#">ទំនាក់ទំនង</a></li>
-                <li class="text-gray-300">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor"
-                        class="w-4 h-4 current-fill" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            d="M12 5v0m0 7v0m0 7v0m0-13a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2z" />
-                    </svg>
-                </li>
+
             </ul>
-            <a class="hidden font-bayon lg:inline-block lg:ml-auto lg:mr-3 py-2 px-6 bg-gray-100 hover:bg-gray-100 text-sm text-gray-900 font-bold  rounded-xl transition duration-200"
+            <a class="hidden px-6 py-2 font-mono text-sm font-bold text-gray-900 transition duration-200 bg-gray-100 lg:inline-block lg:ml-auto lg:mr-3 hover:bg-gray-100 rounded-xl"
                 href="#">
                 <div class="flex items-center">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                    class="lucide lucide-chevrons-right">
-                    <path d="m6 17 5-5-5-5" />
-                    <path d="m13 17 5-5-5-5" />
-                </svg>
-                <span>ចូលប្រើប្រាស់</span>
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                        class="lucide lucide-chevrons-right">
+                        <path d="m6 17 5-5-5-5" />
+                        <path d="m13 17 5-5-5-5" />
+                    </svg>
+                    <span class="uppercase">Login</span>
                 </div>
             </a>
-            <a class="hidden font-bayon  lg:inline-block py-2 px-6 bg-blue-500 hover:bg-blue-600 text-sm text-white font-bold rounded-xl transition duration-200"
+            <a class="hidden px-6 py-2 font-mono text-sm text-white transition duration-200 bg-blue-500 lg:inline-block hover:bg-blue-600 rounded-xl"
                 href="#">
                 <div class="flex items-center">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
@@ -78,11 +92,11 @@
                         <circle cx="12" cy="8" r="5" />
                         <path d="M20 21a8 8 0 0 0-16 0" />
                     </svg>
-                    <span>បង្កើតថ្មី</span>
+                    <span class="font-bold uppercase">Sign Up</span>
                 </div>
             </a>
         </nav>
-       
+
     </div>
 </template>
 
