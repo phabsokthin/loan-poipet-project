@@ -41,7 +41,7 @@
     <!-- bottom navigation -->
     <div class="mx-auto ">
         <div class="fixed bottom-0 z-50 w-full shadow-xl ">
-            <div class="flex items-center justify-between px-8 py-2 mx-12 mb-12 bg-blue-600 rounded-xl">
+            <div class="flex items-center justify-between px-8 py-2 mx-12 mb-8 bg-blue-600 rounded-xl">
                 <div>
                     <RouterLink to="/" class="flex flex-col items-center space-y-2 font-mono uppercase">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"

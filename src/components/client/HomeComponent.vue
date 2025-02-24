@@ -1,6 +1,3 @@
-<script setup lang="ts">
-
-</script>
 
 <template>
     <div class="mx-auto ">
@@ -26,7 +23,7 @@
                             <div aria-hidden="true"
                                 class="absolute inset-0 duration-300 -translate-y-1/2 border rounded-full opacity-25 aspect-video group-hover:-translate-y-1/4 bg-gradient-to-b from-blue-500 to-white dark:from-white dark:to-white blur-2xl dark:opacity-5 dark:group-hover:opacity-10">
                             </div>
-                            <div class="relative grid justify-center grid-cols-1 lg:flex lg:justify-between">
+                            <div class="relative grid items-center justify-center grid-cols-1 lg:flex lg:justify-between">
 
 
                                 <div
