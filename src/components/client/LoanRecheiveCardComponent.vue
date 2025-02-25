@@ -1,8 +1,8 @@
 <template>
-    <div class="max-w-4xl px-6 mx-auto">
+    <div class="max-w-4xl px-6 mx-auto mb-10 lg:mb-0">
         <div>
             <section class="text-gray-700 body-font">
-                <div class="container px-5 py-24 mx-auto">
+                <div class="container py-24 mx-auto">
 
                     <div class="flex flex-wrap -m-4 text-center">
                         <div class="w-full p-4 md:w-1/4 sm:w-1/2">

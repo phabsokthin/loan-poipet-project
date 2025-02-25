@@ -12,7 +12,7 @@
         <SliderComponent />
         <HomeComponent/>
         <LoanRecheiveCardComponent/>
-        <FooterView/>
+        <!-- <FooterView/> -->
 
     </div>
 </template>

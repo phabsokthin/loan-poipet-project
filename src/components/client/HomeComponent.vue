@@ -13,7 +13,7 @@
                                 <path d="M18 8L22 12L18 16" />
                                 <path d="M2 12H22" />
                             </svg>
-                            <span class="font-mono">Loan Processing</span>
+                            <span class="font-mono text-lg md:text-2xl">Loan Processing</span>
                         </h2>
 
                     </div>
@@ -67,14 +67,14 @@
 
             <div>
                 <div class="flex justify-center my-10">
-                    <h2 class="flex items-center gap-1 text-2xl font-semibold text-gray-950 dark:text-white">
+                    <h2 class="flex items-center gap-1 font-semibold text-gray-950 dark:text-white">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
                             stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
                             class="lucide lucide-move-right">
                             <path d="M18 8L22 12L18 16" />
                             <path d="M2 12H22" />
                         </svg>
-                        <span class="font-mono">Customer Received Loans </span>
+                        <span class="font-mono text-lg md:text-2xl ">Customer Received Loans </span>
                     </h2>
                 </div>
 
