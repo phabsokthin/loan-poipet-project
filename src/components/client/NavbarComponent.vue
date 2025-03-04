@@ -52,16 +52,19 @@
                             d="M12 5v0m0 7v0m0 7v0m0-13a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2z" />
                     </svg>
                 </li>
-                <li><a class="flex items-center gap-1 font-mono text-gray-400 uppercase text-md hover:text-gray-500"
+                <li>
+                    <a class="flex items-center gap-1 font-mono text-gray-400 uppercase text-md hover:text-gray-500"
                         href="#">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
-                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
                             class="lucide lucide-user size-6">
                             <path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2" />
                             <circle cx="12" cy="7" r="4" />
                         </svg>
-
-                        <span>Profile</span></a></li>
+                        <!-- <span>Profile</span> -->
+                    <router-link :to="{name:'profile'}">Profile</router-link>
+                    </a>
+                </li>
                 <li class="text-gray-300">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor"
                         class="w-4 h-4 current-fill" viewBox="0 0 24 24">
