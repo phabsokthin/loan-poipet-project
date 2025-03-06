@@ -26,6 +26,7 @@ import HomeComponent from '@/components/client/HomeComponent.vue';
 import LoanRecheiveCardComponent from '@/components/client/LoanRecheiveCardComponent.vue';
 import FooterView from '@/view/client/FooterView.vue'
 
+
 export default {
     components: {
         NavbarComponent,

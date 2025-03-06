@@ -4,7 +4,7 @@ import AboutView from '@/view/client/AboutView.vue';
 import ProfileView from '@/view/client/ProfileView.vue';
 
 const routes = [
-  { path: '/', component: HomeView },
+  { path: '/',name:'home', component: HomeView },
   { path: '/about', component: AboutView },
    {path:'/profile',name:'profile',component:ProfileView},
 ];

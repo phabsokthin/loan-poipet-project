@@ -18,7 +18,7 @@
             </div>
             <ul
                 class="absolute hidden transform -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2 lg:flex lg:mx-auto lg:items-center lg:w-auto lg:space-x-6">
-                <li><a class="flex items-center gap-1 font-mono text-gray-400 uppercase text-md hover:text-gray-500"
+                <router-link to="/"><a class="flex items-center gap-1 font-mono text-gray-400 uppercase text-md hover:text-gray-500"
                         href="#">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                             stroke="currentColor" class="size-6">
@@ -26,7 +26,9 @@
                                 d="m2.25 12 8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25" />
                         </svg>
 
-                        <span>Home</span></a></li>
+                        <span>Home</span>
+                    </a>
+                </router-link>
                 <li class="text-gray-300">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor"
                         class="w-4 h-4 current-fill" viewBox="0 0 24 24">
@@ -52,7 +54,7 @@
                             d="M12 5v0m0 7v0m0 7v0m0-13a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2z" />
                     </svg>
                 </li>
-                <li>
+                <router-link to="/profile">
                     <a class="flex items-center gap-1 font-mono text-gray-400 uppercase text-md hover:text-gray-500"
                         href="#">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
@@ -62,9 +64,9 @@
                             <circle cx="12" cy="7" r="4" />
                         </svg>
                         <!-- <span>Profile</span> -->
-                    <router-link :to="{name:'profile'}">Profile</router-link>
+                    <span>Profile</span>
                     </a>
-                </li>
+                </router-link>
                 <li class="text-gray-300">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor"
                         class="w-4 h-4 current-fill" viewBox="0 0 24 24">
