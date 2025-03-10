@@ -36,7 +36,8 @@
                             d="M12 5v0m0 7v0m0 7v0m0-13a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2z" />
                     </svg>
                 </li>
-                <li><a class="flex items-center gap-1 font-mono text-gray-400 uppercase text-md hover:text-gray-500"
+                <router-link to="/wallet">
+                    <a class="flex items-center gap-1 font-mono text-gray-400 uppercase text-md hover:text-gray-500"
                         href="#">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                             stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
@@ -46,7 +47,7 @@
                             <path d="M3 5v14a2 2 0 0 0 2 2h15a1 1 0 0 0 1-1v-4" />
                         </svg>
 
-                        <span>Wallet</span></a></li>
+                        <span>Wallet</span></a></router-link>
                 <li class="text-gray-300">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor"
                         class="w-4 h-4 current-fill" viewBox="0 0 24 24">

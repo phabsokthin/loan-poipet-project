@@ -55,7 +55,7 @@
                 </div>
 
                 <div>
-                    <RouterLink to="/" class="flex flex-col items-center space-y-2 font-mono">
+                    <RouterLink to="/wallet" class="flex flex-col items-center space-y-2 font-mono">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                             stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
                             class="text-white lucide lucide-wallet size-6">
