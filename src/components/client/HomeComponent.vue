@@ -57,7 +57,9 @@
                         <path d="M8 18L12 22L16 18" />
                         <path d="M12 2V22" />
                     </svg>
-                    <span class="uppercase">Request loan</span></button>
+                    <!-- <span class="uppercase">Request loan</span> -->
+                    <router-link to="/loan" class="uppercase">Request loan</router-link>
+                </button>
             </div>
 
 

@@ -52,7 +52,7 @@ s-2.238,5-5,5s-5-2.238-5-5S29.238,9,32,9z"></path>
                     </g>
                 </svg>
                 <p class="text-sm text-white">
-                    Loan Number: 
+                    Loan Number:
                 </p>
             </div>
             <div class="text-right text-white">
@@ -72,16 +72,21 @@ c121.048-0.052,207.528-16.496,205.517-31.558C450.511,398.09,388.519,384.847,341.
                     </g>
                 </svg>
                 <p class="text-sm text-white">
-                    Order Status: 
+                    Order Status:
                 </p>
             </div>
             <div class="text-right">
                 <span class="font-semibold text-white">under review</span>
             </div>
         </div>
-        <div class="mt-5 w-full max-w-4xl">
-            <img :src="require('@/assets/Bank_image.jpg')" alt="BPI" class="shadow-sm w-full max-w-4xl">
+        <!-- we use class select-none and point-events-none -->
+        <div class="select-none mt-5 w-full max-w-4xl">
+            <img :src="require('@/assets/Bank_image.jpg')" alt="BPI"
+                class="shadow-sm w-full max-w-4xl object-cover select-none pointer-events-none">
         </div>
+
+
+
         <!-- <div class="grid grid-cols-4 gap-4 mt-5 justify-between">
             <img src="bpi.png" alt="BPI" class=" shadow-sm h-10">
             <img src="bdo.png" alt="BDO" class=" shadow-sm  h-10">

@@ -3,6 +3,7 @@ import HomeView from '@/view/client/HomeView.vue';
 import AboutView from '@/view/client/AboutView.vue';
 import ProfileView from '@/view/client/ProfileView.vue';
 import WalletView from '@/view/client/WalletView.vue';
+import LoanView from '@/view/client/LoanView.vue';
 
 
 const routes = [
@@ -10,6 +11,7 @@ const routes = [
   { path: '/about', component: AboutView },
   { path:'/profile',name:'profile',component:ProfileView},
   { path:'/wallet',name:'wallet',component:WalletView},
+  { path:'/loan',name:'loan',component:LoanView},
 
 ];
 
