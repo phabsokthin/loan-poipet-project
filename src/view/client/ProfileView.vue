@@ -104,7 +104,7 @@
                         <path d="M12 22H5C3.89543 22 3 21.1046 3 20V4C3 2.89543 3.89543 2 5 2H12" stroke="currentColor"
                             stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
                     </svg>
-                    <span>Logouts</span>
+                    <span>Logout</span>
                 </button>
             </div>
         </div>

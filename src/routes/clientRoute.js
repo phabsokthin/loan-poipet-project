@@ -4,7 +4,8 @@ import AboutView from '@/view/client/AboutView.vue';
 import ProfileView from '@/view/client/ProfileView.vue';
 import WalletView from '@/view/client/WalletView.vue';
 import LoanView from '@/view/client/LoanView.vue';
-
+import RegisterAuth from '@/view/authentication/RegisterAuth.vue';
+import LoginAuth from '@/view/authentication/LoginAuth.vue';
 
 const routes = [
   { path: '/',name:'home', component: HomeView },
@@ -12,6 +13,9 @@ const routes = [
   { path:'/profile',name:'profile',component:ProfileView},
   { path:'/wallet',name:'wallet',component:WalletView},
   { path:'/loan',name:'loan',component:LoanView},
+  { path:'/register',name:'register',component:RegisterAuth},
+  { path:'/login',name:'login',component:LoginAuth},
+  
 
 ];
 

@@ -77,8 +77,8 @@
                 </li>
 
             </ul>
-            <a class="hidden px-6 py-2 font-mono text-sm font-bold text-gray-900 transition duration-200 bg-gray-100 lg:inline-block lg:ml-auto lg:mr-3 hover:bg-gray-100 rounded-xl"
-                href="#">
+            <RouterLink :to="{name: 'login'}" class="hidden px-6 py-2 font-mono text-sm font-bold text-gray-900 transition duration-200 bg-gray-100 lg:inline-block lg:ml-auto lg:mr-3 hover:bg-gray-100 rounded-xl"
+              >
                 <div class="flex items-center">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
                         stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
@@ -88,9 +88,9 @@
                     </svg>
                     <span class="uppercase">Login</span>
                 </div>
-            </a>
-            <a class="hidden px-6 py-2 font-mono text-sm text-white transition duration-200 bg-blue-500 lg:inline-block hover:bg-blue-600 rounded-xl"
-                href="#">
+            </RouterLink>
+            <RouterLink :to="{name: 'register'}" class="hidden px-6 py-2 font-mono text-sm text-white transition duration-200 bg-blue-500 lg:inline-block hover:bg-blue-600 rounded-xl"
+               >
                 <div class="flex items-center">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
                         stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
@@ -100,13 +100,15 @@
                     </svg>
                     <span class="font-bold uppercase">Sign Up</span>
                 </div>
-            </a>
+            </RouterLink>
         </nav>
 
     </div>
 </template>
 
 <script>
+
+
 // Burger menus
 
 </script>
