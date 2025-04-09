@@ -6,6 +6,7 @@ import WalletView from '@/view/client/WalletView.vue';
 import LoanView from '@/view/client/LoanView.vue';
 import RegisterAuth from '@/view/authentication/RegisterAuth.vue';
 import LoginAuth from '@/view/authentication/LoginAuth.vue';
+import Personal_InforView from '@/view/client/Personal_InforView.vue';
 
 const routes = [
   { path: '/',name:'home', component: HomeView },
@@ -15,6 +16,7 @@ const routes = [
   { path:'/loan',name:'loan',component:LoanView},
   { path:'/register',name:'register',component:RegisterAuth},
   { path:'/login',name:'login',component:LoginAuth},
+  {path:'/personal',name:'personal',component:Personal_InforView}
   
 
 ];
