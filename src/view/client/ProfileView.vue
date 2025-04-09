@@ -107,6 +107,9 @@
                     <span>Logout</span>
                 </button>
                 <h1>Hello testint </h1>
+                <div>
+                    <p>My name is </p>
+                </div>
             </div>
         </div>
 
