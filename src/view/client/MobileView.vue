@@ -10,7 +10,7 @@
             </div>
             <div class="flex gap-2">
 
-                <a href="#">
+                <RouterLink to="/login">
                     <div
                         class="flex items-center px-6 py-2 font-mono text-xs font-bold text-black uppercase transition duration-200 bg-gray-100 lg:inline-block lg:ml-auto lg:mr-3 rounded-xl">
                         <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
@@ -21,8 +21,8 @@
                         </svg>
                         <span>Sign In</span>
                     </div>
-                </a>
-                <a href="#">
+                </RouterLink>
+                <RouterLink to="/register">
                     <div
                         class="flex items-center px-6 py-2 font-mono text-xs font-bold text-white uppercase transition duration-200 bg-blue-500 lg:inline-block lg:ml-auto lg:mr-3 rounded-xl">
                         <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
@@ -33,7 +33,7 @@
                         </svg>
                         <span>Sign up</span>
                     </div>
-                </a>
+                </RouterLink>
             </div>
         </div>
     </div>

@@ -5,11 +5,10 @@
     <div class="lg:hidden">
         <MobileView />
     </div>
-    <div class="w-full max-w-4xl px-5 py-10 m-auto mt-1 bg-white">
+    <div class="w-full max-w-4xl px-1 py-10 m-auto mt-1 mb-9 bg-white">
         <h2 class="text-lg font-semibold text-center bg-blue-600 text-white p-3 rounded-md">Personal Information</h2>
         <form class="bg-white rounded-xl p-8 w-full space-y-6">
             <h2 class="text-2xl font-bold text-center mb-6">Personal Information</h2>
-
             <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div>
                     <label class=" mb-1 font-medium flex items-center gap-2">

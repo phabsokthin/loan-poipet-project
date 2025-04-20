@@ -32,7 +32,7 @@
             </div>
 
             <div class="col-span-2 lg:col-span-1">
-                <button
+                <router-link to="/baneficicary"
                     class="flex items-center w-full p-3 text-left border border-gray-300 text-white bg-blue-600 rounded-full shadow-xl hover:bg-blue-700">
                     <svg class="h-6 ml-3 text-white w-7" fill="none" stroke="currentColor" stroke-width="2"
                         viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -41,18 +41,18 @@
                             d="M12 14l6.16-3.422A12.083 12.083 0 0112 21a12.083 12.083 0 01-6.16-10.422L12 14z" />
                     </svg>
                     <span class="ml-3 md:text-xl">Beneficiary Information</span>
-                </button>
+                </router-link>
             </div>
 
             <div class="col-span-2 lg:col-span-1">
-                <button
+                <router-link to="/loancontect"
                     class="flex items-center w-full p-3 text-left border border-gray-300 text-white bg-blue-600 rounded-full shadow-xl hover:bg-blue-700">
                     <svg class="h-6 ml-3 text-white w-7" fill="none" stroke="currentColor" stroke-width="2"
                         viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M8 7h8M8 11h8M8 15h4" />
                     </svg>
                     <span class="ml-3 md:text-xl">Loan Contract</span>
-                </button>
+                </router-link>
             </div>
 
             <div class="col-span-2 lg:col-span-1">
@@ -81,7 +81,7 @@
             </div>
 
             <div class="col-span-2 lg:col-span-1">
-                <button
+                <router-link to="/identification"
                     class="flex items-center w-full p-3 text-left border border-gray-300 text-white bg-blue-600 rounded-full shadow-xl hover:bg-blue-700">
                     <svg class="h-6 ml-3 text-white w-7" fill="none" stroke="currentColor" stroke-width="2"
                         viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -90,7 +90,7 @@
                         <path stroke-linecap="round" stroke-linejoin="round" d="M12 8V4m0 16v-4" />
                     </svg>
                     <span class="ml-3 md:text-xl">About Us</span>
-                </button>
+                </router-link>
             </div>
 
             <div class="flex justify-center col-span-2 mt-6 m">

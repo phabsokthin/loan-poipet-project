@@ -7,6 +7,9 @@ import LoanView from '@/view/client/LoanView.vue';
 import RegisterAuth from '@/view/authentication/RegisterAuth.vue';
 import LoginAuth from '@/view/authentication/LoginAuth.vue';
 import Personal_InforView from '@/view/client/Personal_InforView.vue';
+import BaneficicaryView from '@/view/client/BaneficicaryView.vue';
+import LoancontractView from '@/view/client/LoancontractView.vue';
+import IdentificationView from '@/view/client/IdentificationView.vue';
 
 const routes = [
   { path: '/',name:'home', component: HomeView },
@@ -16,7 +19,10 @@ const routes = [
   { path:'/loan',name:'loan',component:LoanView},
   { path:'/register',name:'register',component:RegisterAuth},
   { path:'/login',name:'login',component:LoginAuth},
-  {path:'/personal',name:'personal',component:Personal_InforView}
+  {path:'/personal',name:'personal',component:Personal_InforView},
+  {path:'/baneficicary',name:'baneficicary',component:BaneficicaryView},
+  {path:'/loancontect',name:'loancontect',component:LoancontractView},
+  {path:'/identification',name:'identification',component:IdentificationView  }
   
 
 ];
