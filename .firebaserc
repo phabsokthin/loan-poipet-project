@@ -1,8 +1,7 @@
 {
   "projects": {
-    "default": "test1-b0d71",
-    "loan-poipet-project": "loan-poipet-project",
-    "test1-b0d71": "test1-b0d71"
+    "loan-online-project": "loan-online-project",
+    "default": "loan-online-project"
   },
   "targets": {},
   "etags": {}
