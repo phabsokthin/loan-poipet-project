@@ -10,13 +10,12 @@ import { getStorage } from 'firebase/storage';
 
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
-  apiKey: "AIzaSyADZa9X4JJH8rafuYuopcmhuwHUkWK5Txg",
-  authDomain: "loan-poipet-project.firebaseapp.com",
-  projectId: "loan-poipet-project",
-  storageBucket: "loan-poipet-project.firebasestorage.app",
-  messagingSenderId: "234837996828",
-  appId: "1:234837996828:web:aa99639ed3fcb0a0d9f6d9",
-  measurementId: "G-XF2298CRD9"
+  apiKey: "AIzaSyB17E-xGFHj7TfRAStBN4sjcVdEP9q8m1k",
+  authDomain: "test1-b0d71.firebaseapp.com",
+  projectId: "test1-b0d71",
+  storageBucket: "test1-b0d71.firebasestorage.app",
+  messagingSenderId: "81607578338",
+  appId: "1:81607578338:web:2a21472909b2fcd99304bb"
 };
 
 const firebaseApp = initializeApp(firebaseConfig)

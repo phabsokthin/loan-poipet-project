@@ -22,4 +22,6 @@ const router = createRouter({
   linkExactActiveClass: 'bg-gray-100 h-10 hover:text-black',
 });
 
+
+
 export default router;

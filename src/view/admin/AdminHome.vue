@@ -111,10 +111,12 @@
                     <path d="m2 2 10 10" />
                     <path d="M12 2A10 10 0 1 1 2 12" />
                 </svg>
+                
                 <span class="font-medium ">Logout</span>
             </button>
         </div>
 
+        
 
     </div>
 

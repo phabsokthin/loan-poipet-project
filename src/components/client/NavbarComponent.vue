@@ -9,6 +9,7 @@
                     alt="">
             </a>
             <div class="lg:hidden">
+                
                 <button class="flex items-center p-3 text-blue-600 navbar-burger">
                     <svg class="block w-4 h-4 fill-current" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
                         <title>Mobile menu</title>

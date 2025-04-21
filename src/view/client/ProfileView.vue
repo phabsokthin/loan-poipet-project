@@ -21,7 +21,7 @@
         <div class="grid grid-cols-2 gap-3 m-auto">
             <div class="col-span-2 lg:col-span-1">
                 <router-link to="/personal"
-                    class="flex items-center w-full p-3 text-left border border-gray-300 text-white bg-blue-600 rounded-full shadow-xl hover:bg-blue-700">
+                    class="flex items-center w-full p-3 text-left text-white bg-blue-600 border border-gray-300 rounded-full shadow-xl hover:bg-blue-700">
                     <svg class="h-6 ml-3 text-white w-7" fill="none" stroke="currentColor" stroke-width="2"
                         viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                         <path stroke-linecap="round" stroke-linejoin="round"
@@ -33,7 +33,7 @@
 
             <div class="col-span-2 lg:col-span-1">
                 <router-link to="/baneficicary"
-                    class="flex items-center w-full p-3 text-left border border-gray-300 text-white bg-blue-600 rounded-full shadow-xl hover:bg-blue-700">
+                    class="flex items-center w-full p-3 text-left text-white bg-blue-600 border border-gray-300 rounded-full shadow-xl hover:bg-blue-700">
                     <svg class="h-6 ml-3 text-white w-7" fill="none" stroke="currentColor" stroke-width="2"
                         viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M12 14l9-5-9-5-9 5 9 5z" />
@@ -46,7 +46,7 @@
 
             <div class="col-span-2 lg:col-span-1">
                 <router-link to="/loancontect"
-                    class="flex items-center w-full p-3 text-left border border-gray-300 text-white bg-blue-600 rounded-full shadow-xl hover:bg-blue-700">
+                    class="flex items-center w-full p-3 text-left text-white bg-blue-600 border border-gray-300 rounded-full shadow-xl hover:bg-blue-700">
                     <svg class="h-6 ml-3 text-white w-7" fill="none" stroke="currentColor" stroke-width="2"
                         viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M8 7h8M8 11h8M8 15h4" />
@@ -57,7 +57,7 @@
 
             <div class="col-span-2 lg:col-span-1">
                 <button
-                    class="flex items-center w-full p-3 text-left border border-gray-300 text-white bg-blue-600 rounded-full shadow-xl hover:bg-blue-700">
+                    class="flex items-center w-full p-3 text-left text-white bg-blue-600 border border-gray-300 rounded-full shadow-xl hover:bg-blue-700">
                     <svg class="h-6 ml-3 text-white w-7" fill="none" stroke="currentColor" stroke-width="2"
                         viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                         <path stroke-linecap="round" stroke-linejoin="round"
@@ -69,7 +69,7 @@
 
             <div class="col-span-2 lg:col-span-1">
                 <button
-                    class="flex items-center w-full p-3 text-left border border-gray-300 text-white bg-blue-600 rounded-full shadow-xl hover:bg-blue-700">
+                    class="flex items-center w-full p-3 text-left text-white bg-blue-600 border border-gray-300 rounded-full shadow-xl hover:bg-blue-700">
                     <svg class="h-6 ml-3 text-white w-7" fill="none" stroke="currentColor" stroke-width="2"
                         viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                         <path stroke-linecap="round" stroke-linejoin="round"
@@ -82,7 +82,7 @@
 
             <div class="col-span-2 lg:col-span-1">
                 <router-link to="/identification"
-                    class="flex items-center w-full p-3 text-left border border-gray-300 text-white bg-blue-600 rounded-full shadow-xl hover:bg-blue-700">
+                    class="flex items-center w-full p-3 text-left text-white bg-blue-600 border border-gray-300 rounded-full shadow-xl hover:bg-blue-700">
                     <svg class="h-6 ml-3 text-white w-7" fill="none" stroke="currentColor" stroke-width="2"
                         viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                         <path stroke-linecap="round" stroke-linejoin="round"
@@ -104,7 +104,7 @@
                         <path d="M12 22H5C3.89543 22 3 21.1046 3 20V4C3 2.89543 3.89543 2 5 2H12" stroke="currentColor"
                             stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
                     </svg>
-                    <span>Logout</span>
+                    <span>Logouts</span>
                 </button>
             </div>
         </div>
