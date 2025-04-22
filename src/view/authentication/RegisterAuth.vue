@@ -114,24 +114,28 @@
 
 <script>
 import { ref } from 'vue';
+import { registerWithPhone } from '@/firebase/Auth';
 
 export default {
-    components: {
-     
-    },
-
     setup() {
         const form = ref({
-            username: '',
-            email: '',
             phone: '',
             password: '',
             confirm_password: ''
         });
 
-        const handleSubmit = () => {
-            console.log('Form submitted:', form.value);
-            // Add your registration logic here
+        const handleSubmit = async () => {
+            if (form.value.password !== form.value.confirm_password) {
+                alert('Passwords do not match');
+                return;
+            }
+            const result = await registerWithPhone(form.value.phone, form.value.password);
+            if (result.user) {
+                alert('Registration successful!');
+                // Optionally redirect to login page
+            } else {
+                alert(result.error || 'Registration failed');
+            }
         };
 
         return {

@@ -1,8 +1,6 @@
 <template>
   <div class="min-h-screen flex items-center justify-center hero-image">
     <div class="w-full max-w-md px-8 py-12">
-      <!-- Login Form -->
-      <!-- <div v-if="showLogin" class="bg-white bg-opacity-90 backdrop-blur-sm rounded-xl shadow-lg p-8"> -->
       <form @submit.prevent="handleLogin" class="bg-white bg-opacity-90 backdrop-blur-sm rounded-xl shadow-lg p-8">
         <!-- Logo Section -->
         <div class="flex justify-center my-6">
@@ -16,14 +14,12 @@
         </div>
 
         <!-- Phone Input -->
-        <div
-          class="flex items-center my-6 mx-4 border-b-2 border-gray-700 hover:border-green-800 transition-colors duration-300">
+        <div class="flex items-center my-6 mx-4 border-b-2 border-gray-700 hover:border-green-800 transition-colors duration-300">
           <label class="self-center text-gray-700">
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
               stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
               class="lucide lucide-phone">
-              <path
-                d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
+              <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
             </svg>
           </label>
           <input v-model="loginForm.phone" class="w-full py-3 pl-4 border-0 focus:outline-none bg-transparent"
@@ -31,8 +27,7 @@
         </div>
 
         <!-- Password Input -->
-        <div
-          class="flex items-center my-6 mx-4 border-b-2 border-gray-700 hover:border-green-800 transition-colors duration-300">
+        <div class="flex items-center my-6 mx-4 border-b-2 border-gray-700 hover:border-green-800 transition-colors duration-300">
           <label class="self-center text-gray-700">
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
               stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
@@ -72,50 +67,35 @@
             Register
           </RouterLink>
         </div>
-
       </form>
-
-
-      <!-- </div> -->
     </div>
   </div>
 </template>
 
 <script>
 import { ref } from 'vue';
+import { loginWithPhone } from '@/firebase/Auth';
 
 export default {
   setup() {
-    const showLogin = ref(true);
-
     const loginForm = ref({
       phone: '',
       password: ''
     });
 
-    const registerForm = ref({
-      name: '',
-      phone: '',
-      password: '',
-      confirmPassword: ''
-    });
-
-    const handleLogin = () => {
-      console.log('Login submitted:', loginForm.value);
-      // Add your login logic here
-    };
-
-    const handleRegister = () => {
-      console.log('Register submitted:', registerForm.value);
-      // Add your register logic here
+    const handleLogin = async () => {
+      const result = await loginWithPhone(loginForm.value.phone, loginForm.value.password);
+      if (result.user) {
+        alert('Login successful!');
+        // Optionally redirect to dashboard or home
+      } else {
+        alert(result.error || 'Login failed');
+      }
     };
 
     return {
-      showLogin,
       loginForm,
-      registerForm,
-      handleLogin,
-      handleRegister
+      handleLogin
     };
   }
 };
