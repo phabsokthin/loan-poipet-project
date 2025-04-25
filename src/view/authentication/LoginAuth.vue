@@ -45,10 +45,8 @@
         <div class="mx-4 mt-8 mb-4">
           <button type="submit"
             class="w-full py-3 font-medium text-white transition-colors duration-300 bg-blue-600 rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500">
-            LOGIN
-            :disabled="loading"
-            class="flex items-center justify-center w-full py-3 font-medium text-white transition-colors duration-300 bg-blue-600 rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500"
-          >
+
+          
             <span v-if="loading" class="mr-2 loader"></span>
             <span>{{ loading ? 'Logging in...' : 'LOGIN' }}</span>
           </button>
