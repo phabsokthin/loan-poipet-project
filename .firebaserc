@@ -1,8 +1,5 @@
 {
   "projects": {
-    "loan-online-project": "loan-online-project",
     "default": "loan-online-project"
-  },
-  "targets": {},
-  "etags": {}
+  }
 }
