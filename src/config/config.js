@@ -19,12 +19,12 @@ const firebaseConfig = {
   appId: "1:243165089283:web:34e2df58e528a1745d0836"
 };
 
+
 const firebaseApp = initializeApp(firebaseConfig)
 const projectFirestore = getFirestore(firebaseApp)
 const projectAuth = getAuth(firebaseApp)
 const projectStorage = getStorage(firebaseApp)
 const timestamp= serverTimestamp;
-
 
 
 export {projectFirestore, projectAuth,timestamp, projectStorage}
