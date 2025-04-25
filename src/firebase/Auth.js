@@ -10,6 +10,7 @@ export async function registerWithPhone(phone, password) {
     const email = phoneToEmail(phone);
     try {
         const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+        // Removed createUserProfile call
         return { user: userCredential.user };
     } catch (error) {
         return { error: error.message };
@@ -26,4 +27,3 @@ export async function loginWithPhone(phone, password) {
         return { error: error.message };
     }
 }
-// ... existing code ...

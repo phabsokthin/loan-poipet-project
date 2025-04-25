@@ -44,8 +44,11 @@
         <!-- Login Button -->
         <div class="mt-8 mb-4 mx-4">
           <button type="submit"
-            class="w-full py-3 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-md transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-blue-500">
-            LOGIN
+            :disabled="loading"
+            class="w-full py-3 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-md transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-blue-500 flex items-center justify-center"
+          >
+            <span v-if="loading" class="loader mr-2"></span>
+            <span>{{ loading ? 'Logging in...' : 'LOGIN' }}</span>
           </button>
         </div>
         <div class="mt-8">
@@ -74,6 +77,7 @@
 
 <script>
 import { ref } from 'vue';
+import { useRouter } from 'vue-router';
 import { loginWithPhone } from '@/firebase/Auth';
 
 export default {
@@ -82,19 +86,25 @@ export default {
       phone: '',
       password: ''
     });
+    const loading = ref(false);
+    const router = useRouter();
 
     const handleLogin = async () => {
+      if (loading.value) return;
+      loading.value = true;
       const result = await loginWithPhone(loginForm.value.phone, loginForm.value.password);
       if (result.user) {
         alert('Login successful!');
-        // Optionally redirect to dashboard or home
+        router.push({ path: '/' }); // Redirect to index path
       } else {
         alert(result.error || 'Login failed');
       }
+      loading.value = false;
     };
 
     return {
       loginForm,
+      loading,
       handleLogin
     };
   }
@@ -109,5 +119,20 @@ export default {
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
+}
+/* Simple loader spinner */
+.loader {
+  border: 2px solid #f3f3f3;
+  border-top: 2px solid #3498db;
+  border-radius: 50%;
+  width: 18px;
+  height: 18px;
+  animation: spin 1s linear infinite;
+  display: inline-block;
+  vertical-align: middle;
+}
+@keyframes spin {
+  0% { transform: rotate(0deg);}
+  100% { transform: rotate(360deg);}
 }
 </style>

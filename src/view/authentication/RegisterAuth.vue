@@ -2,7 +2,7 @@
    
     <div class="min-h-screen flex items-center justify-center hero-image">
         <div class="w-full max-w-md px-8 py-12">
-            <form @submit.prevent="handleSubmit" class="bg-white bg-opacity-90 backdrop-blur-sm rounded-xl shadow-lg p-8">
+            <form  @submit.prevent="handleSubmit" class="bg-white bg-opacity-90 backdrop-blur-sm rounded-xl shadow-lg p-8">
                 <!-- Logo Section -->
                 <div class="flex justify-center my-6">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
@@ -27,9 +27,10 @@
                     <input 
                         id="phone" 
                         v-model="form.phone" 
-                        type="tel" 
+                        type="tel"
                         autocomplete="tel" 
                         required
+                        maxlength="10"
                         class="w-full py-3 pl-4 border-0 focus:outline-none bg-transparent" 
                         placeholder="Phone Number"
                     />
@@ -81,9 +82,13 @@
 
                 <!-- Register Button -->
                 <div class="mt-8 mb-4 mx-4">
-                    <button type="submit"
-                        class="w-full py-3 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-md transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-blue-500">
-                        Register Account
+                    <button
+                        type="submit"
+                        :disabled="loading"
+                        class="w-full py-3 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-md transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-blue-500 flex items-center justify-center"
+                    >
+                        <span v-if="loading" class="loader mr-2"></span>
+                        <span>{{ loading ? 'Registering...' : 'Register Account' }}</span>
                     </button>
                 </div>
 
@@ -114,6 +119,7 @@
 
 <script>
 import { ref } from 'vue';
+import { useRouter } from 'vue-router';
 import { registerWithPhone } from '@/firebase/Auth';
 
 export default {
@@ -123,23 +129,37 @@ export default {
             password: '',
             confirm_password: ''
         });
+        const loading = ref(false);
+        const router = useRouter();
 
         const handleSubmit = async () => {
+            // Validate phone number: must be 8, 9, or 10 digits
+            const phonePattern = /^\d{9,10}$/;
+            if (!phonePattern.test(form.value.phone)) {
+                alert('Phone number must be 9, or 10 digits');
+                return;
+            }
             if (form.value.password !== form.value.confirm_password) {
                 alert('Passwords do not match');
                 return;
             }
-            const result = await registerWithPhone(form.value.phone, form.value.password);
-            if (result.user) {
-                alert('Registration successful!');
-                // Optionally redirect to login page
-            } else {
-                alert(result.error || 'Registration failed');
+            loading.value = true;
+            try {
+                const result = await registerWithPhone(form.value.phone, form.value.password);
+                if (result.user) {
+                    alert('Registration successful!');
+                    router.push({ path: '/' }); // Redirect to index path
+                } else {
+                    alert(result.error || 'Registration failed');
+                }
+            } finally {
+                loading.value = false;
             }
         };
 
         return {
             form,
+            loading,
             handleSubmit
         };
     },
@@ -154,5 +174,19 @@ export default {
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
+}
+.loader {
+    border: 2px solid #f3f3f3;
+    border-top: 2px solid #3498db;
+    border-radius: 50%;
+    width: 18px;
+    height: 18px;
+    animation: spin 1s linear infinite;
+    display: inline-block;
+    vertical-align: middle;
+}
+@keyframes spin {
+    0% { transform: rotate(0deg);}
+    100% { transform: rotate(360deg);}
 }
 </style>

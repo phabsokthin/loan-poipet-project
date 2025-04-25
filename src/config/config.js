@@ -20,7 +20,6 @@ const firebaseConfig = {
   measurementId: "G-JKWK765Z64"
 };
 
-
 const firebaseApp = initializeApp(firebaseConfig)
 const projectFirestore = getFirestore(firebaseApp)
 const projectAuth = getAuth(firebaseApp)

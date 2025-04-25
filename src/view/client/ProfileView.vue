@@ -54,7 +54,7 @@
                     <span class="ml-3 md:text-xl">Loan Contract</span>
                 </router-link>
             </div>
-
+           
             <div class="col-span-2 lg:col-span-1">
                 <button
                     class="flex items-center w-full p-3 text-left text-white bg-blue-600 border border-gray-300 rounded-full shadow-xl hover:bg-blue-700">
@@ -94,7 +94,7 @@
             </div>
 
             <div class="flex justify-center col-span-2 mt-6 m">
-                <button
+                <button @click="handleLogout"
                     class="flex items-center justify-center w-full max-w-sm gap-3 py-3 text-red-600 transition border border-red-600 rounded-full md:text-xl hover:bg-red-100">
                     <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M16 17L21 12L16 7" stroke="currentColor" stroke-width="2" stroke-linecap="round"
@@ -104,7 +104,7 @@
                         <path d="M12 22H5C3.89543 22 3 21.1046 3 20V4C3 2.89543 3.89543 2 5 2H12" stroke="currentColor"
                             stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
                     </svg>
-                    <span>Logouts</span>
+                    <span>Logout</span>
                 </button>
             </div>
         </div>
@@ -116,11 +116,25 @@
 <script>
 import NavbarComponent from '@/components/client/NavbarComponent.vue';
 import MobileView from './MobileView.vue';
+import { useRouter } from 'vue-router';
 export default {
     components: {
         NavbarComponent,
         MobileView,
     },
+    setup() {
+        const router = useRouter();
+
+        const handleLogout = () => {
+            // Perform logout logic here, e.g., clearing tokens or user data
+            alert('Logged out successfully!');
+            router.push({ path: '/login' }); // Redirect to login page
+        };
+
+        return {
+            handleLogout
+        };
+    }
 }
 </script>
 
