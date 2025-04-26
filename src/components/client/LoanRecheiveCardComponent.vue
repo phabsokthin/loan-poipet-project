@@ -5,8 +5,9 @@
                 <div class="container py-24 mx-auto">
 
                     <div class="flex flex-wrap -m-4 text-center">
-                        <div class="w-full p-4 md:w-1/4 sm:w-1/2">
+                        <a href="#link_account" class="w-full p-4 md:w-1/4 sm:w-1/2">
 
+                            
                             <div
                                 class="px-4 py-6 overflow-hidden transition duration-500 transform border-2 hover:scale-110">
 
@@ -30,10 +31,10 @@
                             </div>
 
 
-                        </div>
+                        </a>
 
 
-                        <div class="w-full p-4 md:w-1/4 sm:w-1/2">
+                        <div @click="handleRequestLoan" class="w-full p-4 md:w-1/4 sm:w-1/2">
 
                             <div
                                 class="px-4 py-6 overflow-hidden transition duration-500 transform border-2 hover:scale-110">
@@ -42,7 +43,7 @@
                                     class="absolute inset-0 duration-300 -translate-y-1/2 border rounded-full opacity-25 aspect-video group-hover:-translate-y-1/4 bg-gradient-to-b from-blue-500 to-white dark:from-white dark:to-white blur-2xl dark:opacity-5 dark:group-hover:opacity-10">
                                 </div>
 
-                                <div class="space-y-2">
+                                <div  class="space-y-2 cursor-pointer">
                                     <div class="flex justify-center">
 
 
@@ -56,7 +57,7 @@
                                             <path d="M8 16H3v5" />
                                         </svg>
                                     </div>
-                                    <h2 class="font-mono font-medium text-gray-900 md:ext-xl title-font">Request</h2>
+                                    <h2 class="font-mono font-medium text-gray-900 md:ext-xl title-font">Request Loan</h2>
                                 </div>
 
                             </div>
@@ -64,7 +65,7 @@
 
                         </div>
 
-                        <div class="w-full p-4 md:w-1/4 sm:w-1/2">
+                        <RouterLink to="/profile" class="w-full p-4 md:w-1/4 sm:w-1/2">
 
                             <div
                                 class="px-4 py-6 overflow-hidden transition duration-500 transform border-2 hover:scale-110">
@@ -92,7 +93,7 @@
                             </div>
 
 
-                        </div>
+                        </RouterLink>
                         <div class="w-full p-4 md:w-1/4 sm:w-1/2">
 
                             <div
@@ -135,3 +136,34 @@
         </div>
     </div>
 </template>
+
+<script>
+
+import { useRouter } from 'vue-router'
+import getUser from '@/firebase/getUser'
+
+export default {
+    setup(){
+
+
+        const router = useRouter()
+        const { user } = getUser()
+        
+        const handleRequestLoan = () => {
+            
+            if(user.value){
+                router.push('/loan')
+            }
+            else{
+                router.push('/login')
+            }
+        }
+
+        return {
+            handleRequestLoan
+        }
+    }
+}
+
+
+</script>

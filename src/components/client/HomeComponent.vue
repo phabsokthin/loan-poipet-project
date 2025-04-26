@@ -1,4 +1,3 @@
-
 <template>
     <div class="mx-auto ">
         <!-- component -->
@@ -17,13 +16,14 @@
                         </h2>
 
                     </div>
-                    <div class="">
+                    <div id="link_account" class="">
                         <div
                             class="relative p-8 overflow-hidden bg-white border-2 border-gray-200 group border-t-blue-500 dark:border-gray-800 dark:bg-gray-900">
                             <div aria-hidden="true"
                                 class="absolute inset-0 duration-300 -translate-y-1/2 border rounded-full opacity-25 aspect-video group-hover:-translate-y-1/4 bg-gradient-to-b from-blue-500 to-white dark:from-white dark:to-white blur-2xl dark:opacity-5 dark:group-hover:opacity-10">
                             </div>
-                            <div class="relative grid items-center justify-center grid-cols-1 lg:flex lg:justify-between">
+                            <div
+                                class="relative grid items-center justify-center grid-cols-1 lg:flex lg:justify-between">
                                 <div
                                     class="mt-6 border-blue-600 rounded-full border-8 flex items-center justify-center w-[180px] h-[180px]">
                                     <div class="space-y-2 text-center">
@@ -49,7 +49,7 @@
             </div>
 
             <div class="flex justify-center my-10">
-                <button
+                <button @click="handleRequestLoan"
                     class="flex items-center gap-1 p-3 font-mono font-bold text-white bg-blue-600 rounded-full shadow-xl hover:bg-blue-700">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
                         stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
@@ -58,7 +58,10 @@
                         <path d="M12 2V22" />
                     </svg>
                     <!-- <span class="uppercase">Request loan</span> -->
-                    <router-link to="/loan" class="uppercase">Request loan</router-link>
+
+                    <div>
+                        <div class="uppercase">Request loan</div>
+                    </div>
                 </button>
             </div>
 
@@ -89,8 +92,8 @@
                             <div
                                 class=" border-blue-600 rounded-full border-2 flex items-center justify-center w-12 h-12 md:w-[80px] md:h-[80px]">
                                 <div class="space-y-2 text-center">
-                                    <svg xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 24 24"
-                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+                                        stroke="currentColor" stroke-width="2" stroke-linecap="round"
                                         stroke-linejoin="round" class="lucide lucide-hand-coins size-5 md:size-8">
                                         <path d="M11 15h2a2 2 0 1 0 0-4h-3c-.6 0-1.1.2-1.4.6L3 17" />
                                         <path
@@ -104,22 +107,22 @@
 
                             <div class="mt-6 pb-6 rounded-b-[--card-border-radius]">
                                 <div class="space-y-3 font-mono text-xs text-black md:text-xl">
-                                    <h1>09438880**</h1>
-                                   
+                                    <h1 v-if="user">{{ user?.email ? user.email.slice(0, 7) + '***' : '' }}</h1>
+                                    <h1 v-else>No Account!</h1>
                                 </div>
                             </div>
 
                             <div class="mt-6 pb-6 rounded-b-[--card-border-radius]">
                                 <div class="space-y-3 font-mono text-xs text-black md:text-xl">
                                     <h1 class="text-green-500">Received Loans Amount </h1>
-                                   
+
                                 </div>
                             </div>
 
                             <div class="mt-6 pb-6 rounded-b-[--card-border-radius]">
                                 <div class="space-y-3 font-mono text-xs text-black md:text-xl">
                                     <h1>40000000 $</h1>
-                                   
+
                                 </div>
                             </div>
 
@@ -132,3 +135,30 @@
         </section>
     </div>
 </template>
+
+<script>
+
+import getUser from '@/firebase/getUser';
+import { useRouter } from 'vue-router';
+export default {
+    setup(){
+        const {user} = getUser()
+
+        const router = useRouter()
+
+        const handleRequestLoan = () => {
+            
+            if(user.value){
+                router.push('/loan')
+            }
+            else{
+                router.push('/login')
+            }
+        }
+
+
+        return {user,handleRequestLoan}
+    }
+}
+
+</script>

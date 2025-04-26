@@ -8,7 +8,7 @@
                         alt="">
                 </a>
             </div>
-            <div class="flex gap-2">
+            <div v-if="!user" class="flex gap-2">
 
                 <RouterLink to="/login">
                     <div
@@ -35,13 +35,31 @@
                     </div>
                 </RouterLink>
             </div>
+            <div v-else class="relative flex items-center gap-2 mr-10">
+         
+                <div>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                        class="text-gray-600 lucide lucide-user-round-check-icon lucide-user-round-check">
+                        <path d="M2 21a8 8 0 0 1 13.292-6" />
+                        <circle cx="10" cy="8" r="5" />
+                        <path d="m16 19 2 2 4-4" />
+                    </svg>
+
+                    <div class="absolute top-0 right-1 ">
+                        <div class="w-3 h-3 bg-green-500 rounded-full">
+
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 
     <!-- bottom navigation -->
     <div class="mx-auto ">
         <div class="fixed bottom-0 z-50 w-full shadow-xl ">
-            <div class="flex items-center justify-between px-8 py-2 mx-12 mb-8 bg-blue-600 rounded-xl">
+            <div class="flex items-center justify-between px-8 py-2 mx-12 mb-8 bg-blue-600 shadow-xl rounded-xl">
                 <div>
                     <RouterLink to="/" class="flex flex-col items-center space-y-2 font-mono uppercase">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
@@ -53,6 +71,9 @@
                         <!-- <router-link :to="{name:'home'}" class="text-xs text-white hover:text-gray-200">Home</router-link> -->
                     </RouterLink>
                 </div>
+
+
+
 
                 <div>
                     <RouterLink to="/wallet" class="flex flex-col items-center space-y-2 font-mono">
@@ -88,9 +109,24 @@
                     </RouterLink>
                 </div>
 
-               
-               
             </div>
+
+
         </div>
     </div>
 </template>
+
+<script>
+
+import getUser from '@/firebase/getUser';
+
+export default {
+    setup() {
+
+        const { user } = getUser()
+
+
+        return { user }
+    }
+}
+</script>

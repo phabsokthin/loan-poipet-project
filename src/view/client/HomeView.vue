@@ -1,19 +1,21 @@
 <template>
-    <div class="hidden lg:block">
-        <NavbarComponent />
-        <SliderComponent />
-        <HomeComponent/>
-        <LoanRecheiveCardComponent/>
-        <FooterView/>
-        
-    </div>
-    <div class="lg:hidden">
-        <MobileView />
-        <SliderComponent />
-        <HomeComponent/>
-        <LoanRecheiveCardComponent/>
-        <!-- <FooterView/> -->
+    <div>
+        <div class="hidden lg:block" v-motion-fade>
+            <NavbarComponent />
+            <SliderComponent />
+            <HomeComponent />
+            <LoanRecheiveCardComponent />
+            <FooterView />
 
+        </div>
+        <div class="lg:hidden">
+            <MobileView />
+            <SliderComponent />
+            <HomeComponent />
+            <LoanRecheiveCardComponent />
+            <!-- <FooterView/> -->
+
+        </div>
     </div>
 </template>
 

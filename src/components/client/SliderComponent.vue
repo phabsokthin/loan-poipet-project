@@ -8,17 +8,15 @@
         class="mySwiper"
     >
         <swiper-slide>
-            <img class="w-full" src="https://fakeimg.pl/1200x400/" alt="Slide 1">
+            <img class="object-contain w-full" src="@/assets/slider1.jpg" alt="Slide 1">
         </swiper-slide>
         <swiper-slide>
-            <img class="w-full" src="https://fakeimg.pl/1200x400/" alt="Slide 2">
+            <img class="object-contain w-full" src="@/assets/slider2.jpg" alt="Slide 2">
         </swiper-slide>
         <swiper-slide>
-            <img class="w-full" src="https://fakeimg.pl/1200x400/" alt="Slide 3">
+            <img class="object-contain w-full" src="@/assets/slider3.jpg" alt="Slide 3">
         </swiper-slide>
-        <swiper-slide>
-            <img class="w-full" src="https://fakeimg.pl/1200x400/" alt="Slide 4">
-        </swiper-slide>
+       
     </swiper>
 </template>
 

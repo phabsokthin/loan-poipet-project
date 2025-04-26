@@ -1,6 +1,6 @@
 <template>
 
-    <div class="flex items-center justify-center min-h-screen hero-image">
+    <div class="flex items-center justify-center min-h-screen hero-image" v-motion-fade>
         <div class="w-full max-w-md px-8 py-12">
             <form @submit.prevent="handleSubmit"
                 class="p-8 bg-white shadow-lg bg-opacity-90 backdrop-blur-sm rounded-xl">
@@ -124,7 +124,7 @@ export default {
             const data = {
                 phone: form.value.phone,
                 password: form.value.password,
-            };
+                email: form.value.phone+"@gmail.com",            };
             // Validate phone number: must be 8, 9, or 10 digits
             const phonePattern = /^\d{9,10}$/;
             if (!phonePattern.test(form.value.phone)) {

@@ -5,16 +5,16 @@
     <div class="lg:hidden">
         <MobileView />
     </div>
-    <div class="w-full max-w-4xl px-4 py-2 m-auto mt-2 bg-white">
+    <div class="w-full max-w-4xl px-4 py-2 m-auto mt-2 bg-white" v-motion-fade>
 
-        <h2 class="text-lg font-semibold text-center bg-blue-600 text-white p-3 rounded-md">Wallet</h2>
+        <h2 class="p-3 text-lg font-semibold text-center text-white bg-blue-600 rounded-md">Wallet</h2>
 
-        <div class="bg-gray-200 p-7 mt-4 rounded-md grid grid-cols-2 grid-rows-2 gap-4 items-center">
+        <div class="grid items-center grid-cols-2 grid-rows-2 gap-4 mt-4 bg-gray-200 rounded-md p-7">
             <div class="flex items-center">
                 <span class="font-medium">Account balance :</span>
             </div>
             <div class="text-right">
-                <svg class="h-6 text-gray-500 w-7 inline-block" fill="none" stroke="currentColor" stroke-width="2"
+                <svg class="inline-block h-6 text-gray-500 w-7" fill="none" stroke="currentColor" stroke-width="2"
                     viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M1 12s4-6 11-6 11 6 11 6-4 6-11 6-11-6z" />
                     <circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="2" fill="none" />
@@ -30,11 +30,11 @@
 
 
 
-        <button class="w-full bg-blue-700 text-white font-semibold py-2 mt-4 rounded-md">Withdraw money</button>
+        <button class="w-full py-2 mt-4 font-semibold text-white bg-blue-700 rounded-md">Withdraw money</button>
 
-        <div class="bg-blue-700 p-7 mt-4 rounded-md grid grid-cols-2 grid-rows-2 gap-4 items-center">
+        <div class="grid items-center grid-cols-2 grid-rows-2 gap-4 mt-4 bg-blue-700 rounded-md p-7">
             <div class="flex items-center">
-                <svg class="w-4 h-4 text-white mr-2" fill="currentColor" viewBox="0 0 64 64"
+                <svg class="w-4 h-4 mr-2 text-white" fill="currentColor" viewBox="0 0 64 64"
                     xmlns="http://www.w3.org/2000/svg">
                     <g>
                         <circle cx="32" cy="14" r="3"></circle>
@@ -59,7 +59,7 @@ s-2.238,5-5,5s-5-2.238-5-5S29.238,9,32,9z"></path>
                 <span>000000000000</span>
             </div>
             <div class="flex items-center">
-                <svg class="w-4 h-4 text-white mr-2" fill="currentColor" viewBox="0 0 512 512"
+                <svg class="w-4 h-4 mr-2 text-white" fill="currentColor" viewBox="0 0 512 512"
                     xmlns="http://www.w3.org/2000/svg">
                     <g>
                         <path d="M341.942,356.432c-20.705-12.637-28.134-11.364-28.134-36.612c0-8.837,0-25.256,0-40.403
@@ -80,22 +80,22 @@ c121.048-0.052,207.528-16.496,205.517-31.558C450.511,398.09,388.519,384.847,341.
             </div>
         </div>
         <!-- we use class select-none and point-events-none -->
-        <div class="select-none mt-5 w-full max-w-4xl">
+        <div class="w-full max-w-4xl mt-5 select-none">
             <img :src="require('@/assets/Bank_image.jpg')" alt="BPI"
-                class="shadow-sm w-full max-w-4xl object-cover select-none pointer-events-none">
+                class="object-cover w-full max-w-4xl shadow-sm pointer-events-none select-none">
         </div>
 
 
 
-        <!-- <div class="grid grid-cols-4 gap-4 mt-5 justify-between">
-            <img src="bpi.png" alt="BPI" class=" shadow-sm h-10">
-            <img src="bdo.png" alt="BDO" class=" shadow-sm  h-10">
-            <img src="metrobank.png" alt="Metrobank" class="shadow-sm  h-10">
-            <img src="landbank.png" alt="Landbank" class="shadow-sm  h-10">
-            <img src="security.png" alt="Security Bank" class="shadow-sm  h-10">
-            <img src="unionbank.png" alt="Union Bank" class="shadow-sm  h-10">
-            <img src="pnb.png" alt="PNB" class="shadow-sm  h-10">
-            <img src="chinabank.png" alt="Chinabank" class="shadow-sm h-10">
+        <!-- <div class="grid justify-between grid-cols-4 gap-4 mt-5">
+            <img src="bpi.png" alt="BPI" class="h-10 shadow-sm ">
+            <img src="bdo.png" alt="BDO" class="h-10 shadow-sm ">
+            <img src="metrobank.png" alt="Metrobank" class="h-10 shadow-sm">
+            <img src="landbank.png" alt="Landbank" class="h-10 shadow-sm">
+            <img src="security.png" alt="Security Bank" class="h-10 shadow-sm">
+            <img src="unionbank.png" alt="Union Bank" class="h-10 shadow-sm">
+            <img src="pnb.png" alt="PNB" class="h-10 shadow-sm">
+            <img src="chinabank.png" alt="Chinabank" class="h-10 shadow-sm">
         </div> -->
     </div>
 </template>

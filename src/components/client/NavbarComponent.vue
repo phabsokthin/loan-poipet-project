@@ -9,7 +9,7 @@
                     alt="">
             </a>
             <div class="lg:hidden">
-                
+
                 <button class="flex items-center p-3 text-blue-600 navbar-burger">
                     <svg class="block w-4 h-4 fill-current" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
                         <title>Mobile menu</title>
@@ -19,7 +19,8 @@
             </div>
             <ul
                 class="absolute hidden transform -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2 lg:flex lg:mx-auto lg:items-center lg:w-auto lg:space-x-6">
-                <router-link to="/"><a class="flex items-center gap-1 font-mono text-gray-400 uppercase text-md hover:text-gray-500"
+                <router-link to="/"><a
+                        class="flex items-center gap-1 font-mono text-gray-400 uppercase text-md hover:text-gray-500"
                         href="#">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                             stroke="currentColor" class="size-6">
@@ -66,7 +67,7 @@
                             <circle cx="12" cy="7" r="4" />
                         </svg>
                         <!-- <span>Profile</span> -->
-                    <span>Profile</span>
+                        <span>Profile</span>
                     </a>
                 </router-link>
                 <li class="text-gray-300">
@@ -78,30 +79,52 @@
                 </li>
 
             </ul>
-            <RouterLink :to="{name: 'login'}" class="hidden px-6 py-2 font-mono text-sm font-bold text-gray-900 transition duration-200 bg-gray-100 lg:inline-block lg:ml-auto lg:mr-3 hover:bg-gray-100 rounded-xl"
-              >
-                <div class="flex items-center">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                        class="lucide lucide-chevrons-right">
-                        <path d="m6 17 5-5-5-5" />
-                        <path d="m13 17 5-5-5-5" />
-                    </svg>
-                    <span class="uppercase">Login</span>
+            <div class="flex items-center gap-3">
+                <div v-if="!user">
+                    <RouterLink :to="{ name: 'login' }"
+                        class="hidden px-6 py-2 font-mono text-sm font-bold text-gray-900 transition duration-200 bg-gray-100 lg:inline-block lg:ml-auto lg:mr-3 hover:bg-gray-100 rounded-xl">
+                        <div class="flex items-center">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" class="lucide lucide-chevrons-right">
+                                <path d="m6 17 5-5-5-5" />
+                                <path d="m13 17 5-5-5-5" />
+                            </svg>
+                            <span class="uppercase">Login</span>
+                        </div>
+                    </RouterLink>
+                    <RouterLink :to="{ name: 'register' }"
+                        class="hidden px-6 py-2 font-mono text-sm text-white transition duration-200 bg-blue-500 lg:inline-block hover:bg-blue-600 rounded-xl">
+                        <div class="flex items-center">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" class="lucide lucide-user-round">
+                                <circle cx="12" cy="8" r="5" />
+                                <path d="M20 21a8 8 0 0 0-16 0" />
+                            </svg>
+                            <span class="font-bold uppercase">Sign Up</span>
+                        </div>
+                    </RouterLink>
+
+
                 </div>
-            </RouterLink>
-            <RouterLink :to="{name: 'register'}" class="hidden px-6 py-2 font-mono text-sm text-white transition duration-200 bg-blue-500 lg:inline-block hover:bg-blue-600 rounded-xl"
-               >
-                <div class="flex items-center">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                <div v-else class="relative mr-10">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none"
                         stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                        class="lucide lucide-user-round">
-                        <circle cx="12" cy="8" r="5" />
-                        <path d="M20 21a8 8 0 0 0-16 0" />
+                        class="text-gray-600 lucide lucide-user-round-check-icon lucide-user-round-check">
+                        <path d="M2 21a8 8 0 0 1 13.292-6" />
+                        <circle cx="10" cy="8" r="5" />
+                        <path d="m16 19 2 2 4-4" />
                     </svg>
-                    <span class="font-bold uppercase">Sign Up</span>
+
+                    <div class="absolute top-0 right-1 ">
+                        <div class="w-3 h-3 bg-green-500 rounded-full">
+                            
+                        </div>
+                    </div>
                 </div>
-            </RouterLink>
+            </div>
+
         </nav>
 
     </div>
@@ -109,7 +132,16 @@
 
 <script>
 
+import getUser from '@/firebase/getUser';
 
-// Burger menus
+export default{
+    setup(){
+        
+        const {user} = getUser()
+        
+
+        return {user}
+    }
+}
 
 </script>

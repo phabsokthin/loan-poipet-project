@@ -2,7 +2,7 @@ import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword } f
 
 // Helper to convert phone number to a pseudo-email (since Firebase needs email)
 function phoneToEmail(phone) {
-    return `${phone}@phoneuser.poipet`;
+    return `${phone}@gmail.com`;
 }
 
 export async function registerWithPhone(phone, password) {
@@ -27,3 +27,4 @@ export async function loginWithPhone(phone, password) {
         return { error: error.message };
     }
 }
+

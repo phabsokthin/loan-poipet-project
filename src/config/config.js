@@ -11,14 +11,13 @@ import { getStorage } from 'firebase/storage';
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 
 const firebaseConfig = {
-  apiKey: "AIzaSyBY2k1WfukJKS0msWjUfaMavZipPDDMD9w",
-  authDomain: "loan-online-project-87fbe.firebaseapp.com",
-  projectId: "loan-online-project-87fbe",
-  storageBucket: "loan-online-project-87fbe.firebasestorage.app",
-  messagingSenderId: "243165089283",
-  appId: "1:243165089283:web:34e2df58e528a1745d0836"
+  apiKey: "AIzaSyB2SRF9m9xaASfjPrUzfSs3FqrQf_LGYiM",
+  authDomain: "loan-online-5eb43.firebaseapp.com",
+  projectId: "loan-online-5eb43",
+  storageBucket: "loan-online-5eb43.firebasestorage.app",
+  messagingSenderId: "150990591865",
+  appId: "1:150990591865:web:3379def873aa30826e41a8"
 };
-
 
 const firebaseApp = initializeApp(firebaseConfig)
 const projectFirestore = getFirestore(firebaseApp)

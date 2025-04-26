@@ -1,5 +1,5 @@
 <template>
-  <div class="flex items-center justify-center min-h-screen hero-image">
+  <div class="flex items-center justify-center min-h-screen hero-image" v-motion-fade>
     <div class="w-full max-w-md px-8 py-12">
       <form @submit.prevent="handleLogin" class="p-8 bg-white shadow-lg bg-opacity-90 backdrop-blur-sm rounded-xl">
         <!-- Logo Section -->

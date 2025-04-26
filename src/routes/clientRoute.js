@@ -12,24 +12,63 @@ import LoancontractView from '@/view/client/LoancontractView.vue';
 import IdentificationView from '@/view/client/IdentificationView.vue';
 
 const routes = [
-  { path: '/',name:'home', component: HomeView },
+  { path: '/', name: 'home', component: HomeView },
   { path: '/about', component: AboutView },
-  { path:'/profile',name:'profile',component:ProfileView},
-  { path:'/wallet',name:'wallet',component:WalletView},
-  { path:'/loan',name:'loan',component:LoanView},
-  { path:'/register',name:'register',component:RegisterAuth},
-  { path:'/login',name:'login',component:LoginAuth},
-  {path:'/personal',name:'personal',component:Personal_InforView},
-  {path:'/baneficicary',name:'baneficicary',component:BaneficicaryView},
-  {path:'/loancontect',name:'loancontect',component:LoancontractView},
-  {path:'/identification',name:'identification',component:IdentificationView  }
-  
+  { path: '/profile', name: 'profile', component: ProfileView },
+  { path: '/wallet', name: 'wallet', component: WalletView },
+  { path: '/loan', name: 'loan', component: LoanView },
+  { path: '/register', name: 'register', component: RegisterAuth },
+  { path: '/login', name: 'login', component: LoginAuth },
+  {
+    path: '/personal', name: 'personal', component: Personal_InforView,
+
+    props: (route) => ({
+      data: JSON.parse(route.query.data),
+    })
+
+  },
+  {
+    path: '/baneficicary', name: 'baneficicary', component: BaneficicaryView,
+
+    props: (route) => ({
+      data: JSON.parse(route.query.data),
+    })
+  },
+  {
+    path: '/loancontect', name: 'loancontect', component: LoancontractView,
+
+    props: (route) => ({
+      data: JSON.parse(route.query.data),})
+  },
+  {
+    path: '/identification', name: 'identification', component: IdentificationView,
+
+    props: (route) => ({
+      data: JSON.parse(route.query.data),
+    })
+  }
+
 
 ];
 
 const router = createRouter({
   history: createWebHistory(),
   routes,
+
+  scrollBehavior(to) {
+    if (to.hash) {
+      return {
+      
+        el: to.hash,
+        behavior: 'smooth', // Optional for smooth scrolling
+      }
+    }
+    else{
+      return {
+        top: 0
+      }
+    }
+  },
 });
 
 export default router;

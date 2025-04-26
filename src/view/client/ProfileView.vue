@@ -1,11 +1,11 @@
-<template>
+<template >
     <div class="hidden lg:block">
         <NavbarComponent />
     </div>
     <div class="lg:hidden">
         <MobileView />
     </div>
-    <div class="w-full max-w-4xl px-5 py-10 m-auto mt-1 bg-white">
+    <div  class="w-full max-w-4xl px-5 py-10 m-auto mt-1 bg-white" v-motion-fade>
         <div class="mb-6 text-2xl text-center ">
             <div
                 class="w-[180px] h-[180px] mx-auto rounded-full border-blue-600 border-8 flex items-center justify-center text-white ">
@@ -15,12 +15,16 @@
                 </div>
             </div>
             <h2 class="mt-4 text-lg font-semibold">Name</h2>
-            <p class="text-sm text-gray-500">Phone : 0000000</p>
+            <div>
+                <div v-if="user" class="text-sm text-gray-500">Phone : {{ user?.email?.slice(0, 10) }}</div>
+                <div v-else class="text-sm text-gray-500">No Account? <RouterLink :to="{name: 'login'}" class="text-blue-400">Login</RouterLink> </div>
+            </div>
+        
         </div>
 
         <div class="grid grid-cols-2 gap-3 m-auto">
             <div class="col-span-2 lg:col-span-1">
-                <router-link to="/personal"
+                <router-link to="#"
                     class="flex items-center w-full p-3 text-left text-white bg-blue-600 border border-gray-300 rounded-full shadow-xl hover:bg-blue-700">
                     <svg class="h-6 ml-3 text-white w-7" fill="none" stroke="currentColor" stroke-width="2"
                         viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -32,7 +36,7 @@
             </div>
 
             <div class="col-span-2 lg:col-span-1">
-                <router-link to="/baneficicary"
+                <router-link to="#"
                     class="flex items-center w-full p-3 text-left text-white bg-blue-600 border border-gray-300 rounded-full shadow-xl hover:bg-blue-700">
                     <svg class="h-6 ml-3 text-white w-7" fill="none" stroke="currentColor" stroke-width="2"
                         viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -45,7 +49,7 @@
             </div>
 
             <div class="col-span-2 lg:col-span-1">
-                <router-link to="/loancontect"
+                <router-link to="#"
                     class="flex items-center w-full p-3 text-left text-white bg-blue-600 border border-gray-300 rounded-full shadow-xl hover:bg-blue-700">
                     <svg class="h-6 ml-3 text-white w-7" fill="none" stroke="currentColor" stroke-width="2"
                         viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -81,7 +85,7 @@
             </div>
 
             <div class="col-span-2 lg:col-span-1">
-                <router-link to="/identification"
+                <router-link to="#"
                     class="flex items-center w-full p-3 text-left text-white bg-blue-600 border border-gray-300 rounded-full shadow-xl hover:bg-blue-700">
                     <svg class="h-6 ml-3 text-white w-7" fill="none" stroke="currentColor" stroke-width="2"
                         viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -93,7 +97,7 @@
                 </router-link>
             </div>
 
-            <div class="flex justify-center col-span-2 mt-6 m">
+            <div v-if="user"  class="flex justify-center col-span-2 mt-6 m">
                 <button @click="handleLogout"
                     class="flex items-center justify-center w-full max-w-sm gap-3 py-3 text-red-600 transition border border-red-600 rounded-full md:text-xl hover:bg-red-100">
                     <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -117,6 +121,8 @@
 import NavbarComponent from '@/components/client/NavbarComponent.vue';
 import MobileView from './MobileView.vue';
 import { useRouter } from 'vue-router';
+import useSignout from '@/firebase/useSignout';
+import getUser from '@/firebase/getUser';
 export default {
     components: {
         NavbarComponent,
@@ -124,15 +130,25 @@ export default {
     },
     setup() {
         const router = useRouter();
+        const {user} = getUser()
+        const {signOut} = useSignout()
 
-        const handleLogout = () => {
+        const handleLogout = async() => {
             // Perform logout logic here, e.g., clearing tokens or user data
-            alert('Logged out successfully!');
-            router.push({ path: '/login' }); // Redirect to login page
+            try{
+                if(window.confirm("Are you sure you want to logout?")){
+                    await signOut()
+                    router.push('/')
+                }
+            }
+            catch(err){
+                console.log(err)
+            }
         };
 
         return {
-            handleLogout
+            handleLogout,
+            user
         };
     }
 }
