@@ -32,7 +32,7 @@
       </div>
 
       <!-- Signature Section -->
-      <div v-if="!showSuccess" class="max-w-md p-4 mx-auto border rounded">
+      <div v-if="!showSuccess" class="max-w-md p-4 mx-auto mb-40 border rounded">
         <p class="mb-2 text-sm text-gray-600">
           ↓ Please sign within the dotted line, the signature must be standard, complete and clear
         </p>

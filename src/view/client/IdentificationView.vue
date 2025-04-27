@@ -133,10 +133,16 @@
 
                 <!-- Submit Button -->
                 <div>
-                    <button type="submit" :disabled="!isFormComplete"
+                    <button v-if="!isLoanding" type="submit" :disabled="!isFormComplete"
                         :class="{ 'opacity-50 cursor-not-allowed': !isFormComplete, 'hover:bg-indigo-700': isFormComplete }"
                         class="flex justify-center w-full px-4 py-2 mb-20 text-sm font-medium text-white bg-indigo-600 border border-transparent rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
                         Continue
+                    </button>
+
+                    <button v-else type="submit"  disabled
+                        :class="{ 'opacity-50 cursor-not-allowed': !isFormComplete, 'hover:bg-indigo-700': isFormComplete }"
+                        class="flex justify-center w-full px-4 py-2 mb-20 text-sm font-medium text-white bg-indigo-400 border border-transparent rounded-md shadow-sm cursor-not-allowed focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                        Waiting...
                     </button>
                 </div>
             </form>
@@ -151,6 +157,11 @@ import MobileView from './MobileView.vue';
 // import { useRoute } from 'vue-router'
 
 import { useRouter } from 'vue-router';
+import useStorage from '@/firebase/useStorage';
+
+import useCollection from '@/firebase/useCollection';
+import getUser from '@/firebase/getUser';
+
 
 export default {
     components: {
@@ -172,8 +183,17 @@ export default {
         const selfieImage = ref(null);
         const isCameraOpen = ref(false);
         const stream = ref(null);
+        const frontCard = ref(null);
+        const backCard = ref(null);
+        const selfieCard = ref(null);
+        const isLoanding = ref(false);
 
         console.log('KYCForm props:', props.data);
+
+        const { setDocs } = useCollection('customers');
+        const { uploadImage } = useStorage();
+        
+        const { user } = getUser();
 
 
         const router = useRouter();
@@ -186,6 +206,7 @@ export default {
             const file = event.target.files[0];
             if (file && file.size <= 5 * 1024 * 1024) { // 5MB limit
                 frontImage.value = URL.createObjectURL(file);
+                frontCard.value = file;
             } else {
                 alert('Please select an image file under 5MB');
             }
@@ -195,6 +216,7 @@ export default {
             const file = event.target.files[0];
             if (file && file.size <= 5 * 1024 * 1024) {
                 backImage.value = URL.createObjectURL(file);
+                backCard.value = file;
             } else {
                 alert('Please select an image file under 5MB');
             }
@@ -204,6 +226,7 @@ export default {
             const file = event.target.files[0];
             if (file && file.size <= 5 * 1024 * 1024) {
                 selfieImage.value = URL.createObjectURL(file);
+                selfieCard.value = file;
             } else {
                 alert('Please select an image file under 5MB');
             }
@@ -219,6 +242,7 @@ export default {
                 isCameraOpen.value = false;
             }
         };
+        
 
         const closeCamera = () => {
             if (stream.value) {
@@ -248,29 +272,60 @@ export default {
             closeCamera();
         };
 
-        const handleSubmit = () => {
-            if (isFormComplete.value) {
-                alert('KYC information submitted successfully!');
-                console.log({
-                    frontImage: frontImage.value,
-                    backImage: backImage.value,
-                    selfieImage: selfieImage.value
-                });
+        const handleSubmit = async () => {
+            try {
+                isLoanding.value = true;
+                let front_image = '';
+                let back_image = '';
+                let selfie_image = '';
 
-                // router.push({path: '/personal', query: { data: JSON.stringify(props.data) }});
+                if (isFormComplete.value) {
+                    // Prepare image paths
+                    const front_imagePath = `front_image/${frontCard.value.name}`;
+                    const back_imagePath = `back_image/${backCard.value.name}`;
+                    const selfie_imagePath = `selfie_image/${selfieCard.value.name}`;
 
-                router.push({
-                    path: "/personal",
-                    query: {
-                        data: JSON.stringify(props.data)
-                    }
+                
+
+                    // Upload images
+                    front_image = await uploadImage(front_imagePath, frontCard.value ); 
+                    back_image = await uploadImage(back_imagePath, backCard.value);
+                    selfie_image = await uploadImage(selfie_imagePath, selfieCard.value);
+                    console.log('Front Image URL:', front_image);
+                    console.log('Back Image URL:', back_image);
+                    console.log('Selfie Image URL:', selfie_image);
+                    // Save image URLs to database
+                    const image_data = {
+                        front_image: front_image,
+                        back_image: back_image,
+                        selfie_image: selfie_image
+                    };
 
 
-                });
+                    await setDocs(image_data, user?.value?.uid);
+                    console.log('Image URL:', image_data);
 
+                    // Navigate to another page
+                    router.push({
+                        path: "/personal",
+                        query: {
+                            data: JSON.stringify(props.data)
+                        }
+                    });
 
+                    isLoanding.value = false;
+
+                    alert('KYC information submitted successfully!');
+
+                }
+            } catch (error) {
+                console.log('Error submitting KYC information:', error);
+            }
+            finally {
+                isLoanding.value = false;
             }
         };
+
 
         // Clean up camera stream when component is destroyed
         onBeforeUnmount(() => {
@@ -292,7 +347,8 @@ export default {
             closeCamera,
             takePhoto,
             handleSubmit,
-            stream
+            stream,
+            isLoanding
         };
     }
 }

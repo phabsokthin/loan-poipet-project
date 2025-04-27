@@ -35,10 +35,10 @@
                     </div>
                 </RouterLink>
             </div>
-            <div v-else class="relative flex items-center gap-2 mr-10">
-         
-                <div>
-                    <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none"
+            <div v-else class="flex items-center justify-between gap-2 ">
+
+                <div class="relative mr-2">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="none"
                         stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
                         class="text-gray-600 lucide lucide-user-round-check-icon lucide-user-round-check">
                         <path d="M2 21a8 8 0 0 1 13.292-6" />
@@ -46,11 +46,22 @@
                         <path d="m16 19 2 2 4-4" />
                     </svg>
 
-                    <div class="absolute top-0 right-1 ">
+                    <div class="absolute top-0 right-0.5">
                         <div class="w-3 h-3 bg-green-500 rounded-full">
 
                         </div>
                     </div>
+                </div>
+
+                <div @click="handleLogout">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                        class="text-gray-600 lucide lucide-log-out-icon lucide-log-out">
+                        <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4" />
+                        <polyline points="16 17 21 12 16 7" />
+                        <line x1="21" x2="9" y1="12" y2="12" />
+                    </svg>
+
                 </div>
             </div>
         </div>
@@ -119,14 +130,27 @@
 <script>
 
 import getUser from '@/firebase/getUser';
+import useSignout from '@/firebase/useSignout';
 
 export default {
     setup() {
 
         const { user } = getUser()
+        const { signOut } = useSignout()
+        const handleLogout = async () => {
+            try {
+                if (window.confirm("Are you sure you want to log out?")) {
+                    await signOut();
+                }
+            } catch (error) {
+                console.error('Error signing out:', error);
+            }
+        };
 
 
-        return { user }
+
+
+        return { user, handleLogout }
     }
 }
 </script>

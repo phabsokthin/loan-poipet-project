@@ -97,9 +97,10 @@
                 </router-link>
             </div>
 
-            <div v-if="user"  class="flex justify-center col-span-2 mt-6 m">
+            <div v-if="user"  class="flex justify-center col-span-2 mt-6 ">
+              <div class="hidden md:block">
                 <button @click="handleLogout"
-                    class="flex items-center justify-center w-full max-w-sm gap-3 py-3 text-red-600 transition border border-red-600 rounded-full md:text-xl hover:bg-red-100">
+                    class="flex items-center justify-center gap-3 py-3 text-red-600 transition border border-red-600 rounded-full w-52 px md:text-xl hover:bg-red-100">
                     <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M16 17L21 12L16 7" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                             stroke-linejoin="round" />
@@ -110,6 +111,7 @@
                     </svg>
                     <span>Logout</span>
                 </button>
+              </div>
             </div>
         </div>
 
